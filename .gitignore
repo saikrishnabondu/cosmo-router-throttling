@@ -1,0 +1,17 @@
+# Build artifacts
+*.exe
+throttle-router
+router
+
+# Composed schema (generated)
+config.json
+
+# Env / secrets
+.env
+*.local
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
