@@ -95,3 +95,9 @@ dispatches to the custom module.
 
 Verified against a local Cosmo Router with sample subgraphs. Each feature is proven
 with a query that succeeds (HTTP 200) and a query that is blocked (HTTP 400 / error code).
+
+---
+
+## Contributors
+
+See [`CONTRIBUTORS.md`](CONTRIBUTORS.md).
