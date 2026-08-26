@@ -24,24 +24,11 @@ Click a section to expand.
 <details>
 <summary><b>6 — Response Throttling — partially implemented</b></summary>
 
-Three features are built, each in its own self-contained folder with config, example queries,
-and an explanation of the internals:
+Implemented:
 
-| Feature | Type | State |
-| --- | --- | --- |
-| [Response-size limit](06-response-throttling/01-response-size-limit/) | Custom Go module (Cosmo has no native option) | Working, with one caveat below |
-| [Query depth limit](06-response-throttling/02-query-depth-limit/) | Native Cosmo config | Working |
-| [Query cost limit](06-response-throttling/03-query-cost-limit/) | Native Cosmo config | Working |
-
-**Caveat on the response-size limit.** Because it enforces at the subgraph-response stage
-(`OnOriginResponse`), the client sees the rejection as a GraphQL error inside an HTTP 200
-envelope carrying the `RESPONSE_SIZE_LIMIT_EXCEEDED` code — not a bare HTTP 413. The size cap
-itself works as intended.
-
-**Why "partially".** Response throttling covers more ground than these three limits; further
-features may be added to this folder over time.
-
-Build and run steps: [`06-response-throttling/docs/setup.md`](06-response-throttling/docs/setup.md).
+1. [Response-size limit](06-response-throttling/01-response-size-limit/)
+2. [Query depth limit](06-response-throttling/02-query-depth-limit/)
+3. [Query cost limit](06-response-throttling/03-query-cost-limit/)
 
 </details>
 
