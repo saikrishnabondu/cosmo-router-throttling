@@ -1,0 +1,17 @@
+# Query cost limit (complexity) — standalone router config
+# Native Cosmo feature; works on any stock router build.
+
+version: "1"
+dev_mode: true
+listen_addr: localhost:3003
+
+execution_config:
+  file:
+    path: config.json      # the composed supergraph (generate with: wgc router compose)
+    watch: true
+
+security:
+  cost_control:
+    enabled: true
+    mode: enforce
+    max_estimated_limit: 200   # reject queries whose estimated cost exceeds 200

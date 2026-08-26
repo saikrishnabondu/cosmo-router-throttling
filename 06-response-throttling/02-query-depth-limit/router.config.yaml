@@ -1,0 +1,24 @@
+# Query depth limit — standalone router config
+# Native Cosmo feature; works on any stock router build.
+
+version: "1"
+dev_mode: true
+listen_addr: localhost:3003
+
+execution_config:
+  file:
+    path: config.json      # the composed supergraph (generate with: wgc router compose)
+    watch: true
+
+security:
+  complexity_limits:
+    mode: enforce
+    depth:
+      enabled: true
+      limit: 6            # reject queries nested deeper than 6 levels
+    total_fields:
+      enabled: true
+      limit: 60
+    root_fields:
+      enabled: true
+      limit: 5

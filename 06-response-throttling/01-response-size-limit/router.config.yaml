@@ -1,0 +1,16 @@
+# Response-size limit — standalone router config
+# Requires the custom router build in this folder (main.go + modules/).
+
+version: "1"
+dev_mode: true
+listen_addr: localhost:3003
+
+execution_config:
+  file:
+    path: config.json      # the composed supergraph (generate with: wgc router compose)
+    watch: true
+
+# Read by modules/response_size.go (keyed by module ID).
+modules:
+  responseSizeLimit:
+    max_response_bytes: 400    # reject responses whose body exceeds 400 bytes
