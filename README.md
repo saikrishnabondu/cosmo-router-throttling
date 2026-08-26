@@ -1,4 +1,4 @@
-# Federated API Use Cases — WunderGraph Cosmo
+# Federated API Demo
 
 Federated API use cases on a [WunderGraph Cosmo](https://cosmo-docs.wundergraph.com/)
 federated GraphQL graph. Every use case is handled in the **router**, in front of the backend
