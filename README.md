@@ -1,10 +1,19 @@
 # Federated API Demo
 
-Demonstrating federated API patterns on a [WunderGraph Cosmo](https://cosmo-docs.wundergraph.com/)
-federated GraphQL graph. Every pattern is handled in the **router**, in front of the backend
-services, so the services themselves need no changes.
+Six federated API use cases on a [WunderGraph Cosmo](https://cosmo-docs.wundergraph.com/)
+federated GraphQL graph:
 
-## Use cases
+1. **Parallel Requests and Response Stitching**
+2. **API Chaining**
+3. **Protocol Conversion**
+4. **Schema Evolution**
+5. **API Provisioning**
+6. **Response Throttling**
+
+Every use case is handled in the **router**, in front of the backend services, so the services
+themselves need no changes.
+
+## What each use case covers
 
 | # | Use case | What it covers | Status |
 |---|----------|----------------|--------|
