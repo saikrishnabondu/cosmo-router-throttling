@@ -8,7 +8,7 @@ Each use case lives in its own folder.
 
 | # | Use case | What it covers | Status |
 |---|---|---|---|
-| 1 | [Parallel Requests and Response Stitching](01-parallel-requests-and-response-stitching/) | Fanning one client query out to multiple subgraphs concurrently and assembling a single response | Not planned |
+| 1 | [Parallel Requests and Response Stitching](01-parallel-requests-and-response-stitching/) | Fanning one client query out to multiple subgraphs concurrently and assembling a single response | In progress |
 | 2 | [API Chaining](02-api-chaining/) | Feeding the output of one subgraph call into the next as an ordered dependency | Not planned |
 | 3 | [Protocol Conversion](03-protocol-conversion/) | Fronting non-GraphQL backends (REST, gRPC) behind one federated GraphQL surface | Not planned |
 | 4 | [Schema Evolution](04-schema-evolution/) | Changing the graph over time — deprecation, additive change, versioning — without breaking clients | Not planned |
