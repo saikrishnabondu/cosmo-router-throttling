@@ -1,4 +1,4 @@
 # Parallel Requests and Response Stitching
 
-**Status: planned — not yet implemented.**
+**Status: In Progress, Finalizing Features**
 
