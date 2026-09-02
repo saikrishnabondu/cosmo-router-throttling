@@ -1,0 +1,41 @@
+# Cosmo Router config for the Parallel Requesting & Response Stitching demo.
+#
+# This is a CLEAN config — it has NO throttling features (no rate_limit, no
+# cost_control, no depth limit, no custom modules). This use case is about the
+# router's federation behaviour (parallel fetch + stitching), so nothing here
+# interferes with the demo queries. It uses the STOCK router.exe.
+
+version: "1"
+dev_mode: true
+listen_addr: localhost:3003
+
+telemetry:
+  metrics:
+    prometheus:
+      listen_addr: 127.0.0.1:8089
+
+execution_config:
+  file:
+    path: config.json
+    watch: true
+
+# Event providers must be declared because the composed demo schema references
+# them (subscriptions). They are unused by these queries.
+events:
+  providers:
+    nats:
+      - id: default
+        url: "nats://localhost:4222"
+      - id: my-nats
+        url: "nats://localhost:4222"
+    kafka:
+      - id: my-kafka
+        brokers:
+          - "localhost:9092"
+    redis:
+      - id: my-redis
+        urls:
+          - "redis://localhost:6379/2"
+
+authorization:
+  require_authentication: false

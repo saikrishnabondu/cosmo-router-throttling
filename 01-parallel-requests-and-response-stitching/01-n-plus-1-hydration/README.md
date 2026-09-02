@@ -38,6 +38,6 @@ type Employee @key(fields: "id") { id: Int!  tag: String! }
 type Employee @key(fields: "id") { id: Int!  products: [ProductName!]! }
 ```
 Because both declare `@key(fields: "id")`, the router knows how to fetch and join them. Full
-schema excerpt: [`../schema/federation-keys.graphqls`](../schema/federation-keys.graphqls).
+schema excerpt: [`schema/federation-keys.graphqls`](schema/federation-keys.graphqls).
 
-Run steps: [`../docs/setup.md`](../docs/setup.md).
+Run steps: [`setup.md`](setup.md).

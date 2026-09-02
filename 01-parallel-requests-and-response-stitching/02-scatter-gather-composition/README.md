@@ -25,6 +25,6 @@ So instead of the client calling service A, then B, then C (a waterfall), the ro
 **sum**.
 
 Schema excerpt showing the independent roots:
-[`../schema/federation-keys.graphqls`](../schema/federation-keys.graphqls).
+[`schema/federation-keys.graphqls`](schema/federation-keys.graphqls).
 
-Run steps: [`../docs/setup.md`](../docs/setup.md).
+Run steps: [`setup.md`](setup.md).

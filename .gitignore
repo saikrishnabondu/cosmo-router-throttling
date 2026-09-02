@@ -18,4 +18,5 @@ Thumbs.db
 
 # ...except this one, which is committed so the use case runs out of the box.
 # Regenerate with: wgc router compose -i graph.yaml -o config.json
-!01-parallel-requests-and-response-stitching/router-config/config.json
+!01-parallel-requests-and-response-stitching/01-n-plus-1-hydration/router-config/config.json
+!01-parallel-requests-and-response-stitching/02-scatter-gather-composition/router-config/config.json

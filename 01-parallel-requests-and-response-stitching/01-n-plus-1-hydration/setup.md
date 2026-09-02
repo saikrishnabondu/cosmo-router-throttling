@@ -25,7 +25,7 @@ powershell -File "scripts/02-start-router.ps1"
 
 ## Then
 1. Open `http://localhost:3003`.
-2. Run the queries in [`01-n-plus-1-hydration/queries.md`](../01-n-plus-1-hydration/queries.md) and [`02-scatter-gather-composition/queries.md`](../02-scatter-gather-composition/queries.md).
+2. Run the query in [`queries.md`](queries.md).
 3. Add the header `{ "X-WG-TRACE": "true" }` to see the batched hydration call and the
    overlapping parallel fetches in the response `extensions`.
 
@@ -37,5 +37,5 @@ No custom code, no throttling config. The patterns are the router's **default fe
 behaviour**, produced by the query planner from the **federated schema** (the shared `@key` on
 `Employee`). The deliverable is: the clean router + composed graph here, the federated schema
 that exhibits the patterns (`schema/federation-keys.graphqls`), the queries that trigger them
-(one `queries.md` per feature folder), and the explanation of how the planner executes them
-(each feature's README).
+(`queries.md`), and the explanation of how the planner executes it
+(`README.md`).

@@ -16,7 +16,7 @@ these. They are what the Cosmo Router's **query planner** does by default, **as 
 schema is federated correctly** (entities declared with `@key`). So the work here is:
 
 1. A **federated schema** where entities are shared across subgraphs via `@key`
-   ([`schema/federation-keys.graphqls`](schema/federation-keys.graphqls)).
+   (each feature folder ships its own `schema/federation-keys.graphqls`).
 2. **Queries** that trigger each pattern (in each feature folder).
 3. Proof that the router executes them in **parallel** and **stitches** the result.
 
@@ -39,14 +39,22 @@ batched call**, and the scatter-gather fetches **overlap in time** rather than r
 after another. (The same is visible as OpenTelemetry spans if a collector is attached.)
 
 ## Layout
+
+Each feature folder is **self-contained** — its own schema excerpt, router config, composed
+supergraph, start scripts, query, and run steps:
+
 ```
-01-n-plus-1-hydration/            README + query for the batched entity fetch
-02-scatter-gather-composition/    README + query for the parallel root fetch
-schema/federation-keys.graphqls   the @key relationships that make hydration work (reference)
-router-config/                    clean router config, composition manifest, composed supergraph
-scripts/                          start infra, subgraphs, and the router (Windows PowerShell)
-docs/setup.md                     how to run
+01-n-plus-1-hydration/            the batched entity fetch
+02-scatter-gather-composition/    the parallel root fetch
+
+  ...each containing:
+    README.md                       how the pattern works
+    queries.md                      the query that triggers it + expected result
+    setup.md                        how to run
+    schema/federation-keys.graphqls the @key relationships (reference)
+    router-config/                  clean router config, composition manifest, composed supergraph
+    scripts/                        start infra, subgraphs, and the router (Windows PowerShell)
 ```
 
-This use case runs on its **own clean router config** with **no throttling features**, using
-the stock `router.exe`. Run steps: [`docs/setup.md`](docs/setup.md).
+Both run on a **clean router config** with **no throttling features**, using the stock
+`router.exe`, and both listen on `http://localhost:3003` — so run one at a time.
