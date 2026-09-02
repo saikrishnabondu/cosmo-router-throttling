@@ -1,3 +1,3 @@
 # API Provisioning
 
-**Status: planned — not yet implemented.**
+**Status: not planned.**

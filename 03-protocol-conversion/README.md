@@ -1,3 +1,3 @@
 # Protocol Conversion
 
-**Status: planned — not yet implemented.**
+**Status: not planned.**

@@ -1,5 +1,7 @@
 # Scatter-Gather Composition
 
+**Status: implemented.**
+
 **Multiple independent services** are called **at the same time** and their responses are
 **combined into one response** — ideal for dashboards that depend on many backends.
 

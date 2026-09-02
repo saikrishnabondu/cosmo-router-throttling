@@ -1,6 +1,6 @@
 # Response Throttling
 
-**Status: implemented.**
+**Status: partially implemented.**
 
 Bounding response size, query depth, and query cost at the router, in front of the backend
 services — so the services themselves need no changes.

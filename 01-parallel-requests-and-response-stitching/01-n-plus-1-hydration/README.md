@@ -1,5 +1,7 @@
 # N+1 Hydration
 
+**Status: implemented.**
+
 After fetching a **list** of objects, the details for each object are fetched in **one batched,
 parallel call** to another service and **joined back by key (`id`)** — avoiding one call per
 item (the "N+1" problem).

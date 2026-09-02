@@ -1,3 +1,3 @@
 # Schema Evolution
 
-**Status: planned — not yet implemented.**
+**Status: not planned.**

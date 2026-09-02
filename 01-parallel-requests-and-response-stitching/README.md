@@ -1,6 +1,6 @@
 # Parallel Requests and Response Stitching
 
-**Status: In Progress, Finalizing Features**
+**Status: partially implemented.** N+1 Hydration and Scatter-Gather Composition are in; more may follow.
 
 Two federation patterns, each in its own folder:
 

@@ -1,4 +1,4 @@
 # API Chaining
 
-**Status: planned — not yet implemented.**
+**Status: not planned.**
 

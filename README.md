@@ -12,7 +12,7 @@ Each use case lives in its own folder.
 | 2 | [API Chaining](02-api-chaining/) | Feeding the output of one subgraph call into the next as an ordered dependency | Not planned |
 | 3 | [Protocol Conversion](03-protocol-conversion/) | Fronting non-GraphQL backends (REST, gRPC) behind one federated GraphQL surface | Not planned |
 | 4 | [Schema Evolution](04-schema-evolution/) | Changing the graph over time — deprecation, additive change, versioning — without breaking clients | Not planned |
-| 5 | [API Provisioning](05-api-provisioning/) | Registering subgraphs, composing the schema, and rolling out router configuration | Not planned  |
+| 5 | [API Provisioning](05-api-provisioning/) | Registering subgraphs, composing the schema, and rolling out router configuration | Not planned |
 | 6 | [Response Throttling](06-response-throttling/) | Bounding response size, query depth, and query cost at the router | [**Partially implemented**](#status-notes) |
 
 Statuses are summarised below.
