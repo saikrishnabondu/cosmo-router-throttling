@@ -1,0 +1,42 @@
+# Federation keys that make these patterns work (reference excerpt)
+# These are the relevant parts of the two running subgraphs. The shared @key on
+# Employee is what lets the router hydrate and join across services.
+
+# ----- employees service (owns the Employee entity + the base fields) -----
+type Query {
+  employees: [Employee]          # the list -> triggers hydration when a products-owned field is selected
+  employee(id: Int!): Employee
+  products: [Products!]!
+}
+
+type Employee @key(fields: "id") {   # <-- entity key: id
+  id: Int!
+  tag: String!
+  expertise: String!
+  # ... details, role, etc. owned here
+}
+
+# ----- products service (EXTENDS the same Employee entity by the same key) -----
+type Queries {
+  productTypes: [Products!]!
+  sharedThings(numOfA: Int!, numOfB: Int!): [Thing!]!   # independent root -> scatter-gather
+}
+
+type Employee @key(fields: "id") {   # <-- SAME key: id
+  id: Int!
+  products: [ProductName!]!          # <-- this field is hydrated per-employee, batched, joined by id
+}
+
+type Thing { a: String! }
+
+# WHY THIS MATTERS
+# - Both subgraphs declare  @key(fields: "id")  on Employee.
+# - So when a query asks for  employees { id products }, the router:
+#     1) gets the employee list (with ids) from the employees service,
+#     2) sends ALL those ids in ONE _entities call to the products service,
+#     3) joins each returned `products` back to its employee by id.
+#   That is N+1 Hydration — powered entirely by the shared @key, no custom code.
+#
+# - `employees` and `sharedThings` are independent roots in different services,
+#   so asking for both in one query makes the router fetch them in PARALLEL and
+#   stitch the results — that is Scatter-Gather.

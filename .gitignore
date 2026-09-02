@@ -15,3 +15,7 @@ config.json
 Thumbs.db
 .idea/
 .vscode/
+
+# ...except this one, which is committed so the use case runs out of the box.
+# Regenerate with: wgc router compose -i graph.yaml -o config.json
+!01-parallel-requests-and-response-stitching/router-config/config.json

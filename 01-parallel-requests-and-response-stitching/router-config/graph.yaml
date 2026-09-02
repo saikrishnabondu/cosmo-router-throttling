@@ -1,0 +1,61 @@
+# Composition manifest used for this throttling demo.
+# Copied from C:\cosmo\demo\graph.yaml, with one change: "employees" routes
+# to port 4101 instead of the demo default 4001, because port 4001 was
+# already bound by an unrelated, pre-existing local service on this machine.
+#
+# All subgraphs are included so the supergraph composes correctly (some
+# fields, e.g. Employee.currentMood, are @external in "employees" and only
+# resolvable via "mood"/"availability" - composition needs their SDL even
+# though those servers aren't started). Only "employees" and "products" are
+# actually run for the tests below; every test query only touches their
+# fields, so the router never needs to reach the other subgraphs' routing
+# URLs.
+version: 1
+feature_flags:
+  - name: myff
+    feature_graphs:
+    - name: products_fg
+      subgraph_name: products
+      routing_url: http://localhost:4010/graphql
+      schema:
+        file: C:/cosmo/demo/pkg/subgraphs/products_fg/subgraph/schema.graphqls
+subgraphs:
+  - name: employees
+    routing_url: http://localhost:4101/graphql
+    schema:
+      file: C:/cosmo/demo/pkg/subgraphs/employees/subgraph/schema.graphqls
+  - name: family
+    routing_url: http://localhost:4002/graphql
+    schema:
+      file: C:/cosmo/demo/pkg/subgraphs/family/subgraph/schema.graphqls
+  - name: hobbies
+    routing_url: http://localhost:4003/graphql
+    schema:
+      file: C:/cosmo/demo/pkg/subgraphs/hobbies/subgraph/schema.graphqls
+  - name: products
+    routing_url: http://localhost:4004/graphql
+    schema:
+      file: C:/cosmo/demo/pkg/subgraphs/products/subgraph/schema.graphqls
+  - name: test1
+    routing_url: http://localhost:4006/graphql
+    schema:
+      file: C:/cosmo/demo/pkg/subgraphs/test1/subgraph/schema.graphqls
+  - name: availability
+    routing_url: http://localhost:4007/graphql
+    schema:
+      file: C:/cosmo/demo/pkg/subgraphs/availability/subgraph/schema.graphqls
+  - name: mood
+    routing_url: http://localhost:4008/graphql
+    schema:
+      file: C:/cosmo/demo/pkg/subgraphs/mood/subgraph/schema.graphqls
+  - name: countries
+    routing_url: http://localhost:4009/graphql
+    schema:
+      file: C:/cosmo/demo/pkg/subgraphs/countries/subgraph/schema.graphqls
+  - name: employeeupdated
+    schema:
+      file: C:/cosmo/demo/pkg/subgraphs/employeeupdated/subgraph/schema.graphqls
+  - name: employee-events
+    routing_url: http://localhost:4099/graphql
+    schema:
+      file: C:/cosmo/demo/pkg/subgraphs/employee-events/subgraph/schema.graphqls
